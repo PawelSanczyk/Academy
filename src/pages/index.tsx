@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 
 interface IKandydat  {
-  imie: string
-  nazwisko: string | undefined //Musiałem dodać typ "undefined" bo inaczej wywalało błąd typu w setObiekt w handleButton
-  email: string | undefined //Musiałem dodać typ "undefined" bo inaczej wywalało błąd typu w setObiekt w handleButton
-  plec: string | undefined //Musiałem dodać typ "undefined" bo inaczej wywalało błąd typu w setObiekt w handleButton
-  telefon: string | undefined //Musiałem dodać typ "undefined" bo inaczej wywalało błąd typu w setObiekt w handleButton
+  imie?: string
+  nazwisko?: string 
+  email?: string 
+  plec?: string 
+  telefon?: string 
 }
 
 
@@ -29,11 +29,11 @@ const kandydatDrugi: IKandydat = {
 
 const HomePage = () => {
 
-  const [imie, setImie] = useState<string>()
-  const [nazwisko, setNazwisko] = useState<string>()
-  const [email, setEmail] = useState<string>()
-  const [plec, setPlec] = useState<string>()
-  const [telefon, setTelefon] = useState<string>()
+  const [imie, setImie] = useState<string>("")
+  const [nazwisko, setNazwisko] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [plec, setPlec] = useState<string>("")
+  const [telefon, setTelefon] = useState<string>("")
 
   const [obiekt, setObiekt] = useState<IKandydat[]>([kandydat])
 
@@ -41,10 +41,13 @@ const HomePage = () => {
 const handleButton = () => {            //Dodaje dopiero po drugim wciśnięciu przycisku
   {console.log("wykonuje func handle", imie)}
 
-   if (imie)  {                        //Jak ustalić warunek od obecności wszystkich zmiennych?
+   if (imie && nazwisko && email && plec && telefon)  {                        
     console.log("======> Dodaję nową pozycję", imie)
      setObiekt([...obiekt, {imie: imie, nazwisko: nazwisko, email: email, plec: plec, telefon: telefon}])
      window.localStorage.setItem("pacjenci", JSON.stringify(obiekt))
+   }
+   if (!imie || !nazwisko || !email || !plec || !telefon)  {    
+    console.log("======> Nie wprowadzono wszystkich danych")
    }
    
   {console.log(obiekt)}
