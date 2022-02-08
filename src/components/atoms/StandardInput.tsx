@@ -2,18 +2,18 @@ import styled from "@emotion/styled"
 
 
 interface IStandarInput {
-    object: any;
+    object?: object;
     setHandle: any;
-    label: string
+    fieldName: string
     index: number
 }
 
-export const StandartInput: React.FC<IStandarInput> = ({setHandle, label, object, index}) => {
+export const StandartInput: React.FC<IStandarInput> = ({setHandle, fieldName, object, index}) => {
 
 return (
     <Container>
-        <Label>{label}:</Label>
-        <Input onChange={value => setHandle({...object, `${label}`: value.target.value})} />
+        <Label>{fieldName}:</Label>
+        <Input onChange={value => setHandle({...object, [fieldName]: value.target.value})} />
     </Container>
 )
 }

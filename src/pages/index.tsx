@@ -27,7 +27,7 @@ const kandydatDrugi: IKandydat = {
   telefon:"555-444-333",
 }
 
-interface IPacjent {
+export interface IPacjent {
   imie: string
   nazwisko: string 
   email: string 
@@ -67,7 +67,7 @@ const czyscicielStorage = () => {
 
 
 const handleButton = () => {
-  if (pacjent)  {
+  if (pacjent?.imie && pacjent?.nazwisko && pacjent?.email && pacjent?.plec && pacjent?.telefon) {
     setPacjenci([...pacjenci, pacjent])
   } else {
     console.log("======> Nie wprowadzono wszystkich danych")
@@ -91,10 +91,9 @@ useEffect(()=>{
 
     return (
   <Container>
-
     {
       inputsList.map((value, index)=> {
-       return <StandartInput object={pacjent} label={value} setHandle={setPacjent} index={index} />
+       return <StandartInput object={pacjent} fieldName={value} setHandle={setPacjent} index={index} />     
       })
     }
     {/* <label>Imię:</label><br></br>
