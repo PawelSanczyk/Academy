@@ -44,9 +44,11 @@ const HomePage = () => {
   const [plec, setPlec] = useState<string>("M")
   const [telefon, setTelefon] = useState<string>("")
 
-  const [pacjenci, setPacjenci] = useState<IPacjent[]>([])
+  const [pacjenciLista, setPacjenciLista] = useState<IPacjent[]>([])
 
   const [pacjent, setPacjent] = useState<IPacjent>()
+
+  const [komunikatWalidacji, setKomunikatWalidacji] = useState<string>('')
 
   const inputsList = ['imie', "nazwisko", "email", "plec", "telefon"]
 
@@ -66,9 +68,11 @@ const czyscicielStorage = () => {
 }
 
 
+
+
 const handleButton = () => {
   if (pacjent?.imie && pacjent?.nazwisko && pacjent?.email && pacjent?.plec && pacjent?.telefon) {
-    setPacjenci([...pacjenci, pacjent])
+      (!pacjent.email.includes("@")) ? setKomunikatWalidacji("Nie ma małpy w zoo") : (pacjent.email.includes("dupa")) ? alert('nie przeklinaj') : (pacjent.telefon.length > 5) ? setPacjenciLista([...pacjenciLista, pacjent]) : console.log("Nie wpisze PAcjenta")
   } else {
     console.log("======> Nie wprowadzono wszystkich danych")
   }
@@ -79,28 +83,31 @@ useEffect(()=>{
   if (window) {
     let a = window?.localStorage?.getItem('pacjenci')
     if (a)
-    setPacjenci(JSON.parse(a))
+    setPacjenciLista(JSON.parse(a))
     console.log("w pamieci mam", a)
   }
 },[])
 
+
 useEffect(()=>{
-  console.log(">>>pacjenci", pacjenci)
-},[pacjenci])
+  console.log(">>>pacjenci", pacjenciLista)
+},[pacjenciLista])
 
 
     return (
   <Container>
     {
       inputsList.map((value, index)=> {
-       return <StandartInput object={pacjent} fieldName={value} setHandle={setPacjent} index={index} />     
+       return <StandartInput object={pacjent} fieldName={value} setHandle={setPacjent} />     
       })
     }
+
+    <h1>{komunikatWalidacji}</h1>
     {/* <label>Imię:</label><br></br>
     <input  onChange={value => setImie(value.target.value)}></input>
-    <br></br><br></br>
+    <br></br><br></br> */}
 
-    <label>Nazwisko:</label><br></br>
+    {/* <label>Nazwisko:</label><br></br>
     <input onChange={value => setNazwisko(value.target.value)}></input>
     <br></br><br></br>
 

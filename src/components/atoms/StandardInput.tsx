@@ -5,10 +5,12 @@ interface IStandarInput {
     object?: object;
     setHandle: any;
     fieldName: string
-    index: number
 }
 
-export const StandartInput: React.FC<IStandarInput> = ({setHandle, fieldName, object, index}) => {
+
+
+
+export const StandartInput: React.FC<IStandarInput> = ({setHandle, fieldName, object }) => {
 
 return (
     <Container>
