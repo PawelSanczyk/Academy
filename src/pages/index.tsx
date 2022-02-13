@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
-import { StandartInput } from "../components";
+import { Lista, StandartInput, listaemail } from "../components";
+
+
 
 interface IKandydat  {
   imie: string
@@ -52,6 +54,9 @@ const HomePage = () => {
 
   const inputsList = ['imie', "nazwisko", "email", "plec", "telefon"]
 
+
+
+
 // const handleButton = () => {            //Dodaje dopiero po drugim wciśnięciu przycisku
 //   {console.log("wykonuje func handle", imie)}
 //    if (imie && nazwisko && email && plec && telefon)  {                        
@@ -71,9 +76,16 @@ const czyscicielStorage = () => {
 
 
 const handleButton = () => {
-  if (pacjent?.imie && pacjent?.nazwisko && pacjent?.email && pacjent?.plec && pacjent?.telefon) {
-      (!pacjent.email.includes("@")) ? setKomunikatWalidacji("Nie ma małpy w zoo") : (pacjent.email.includes("dupa")) ? alert('nie przeklinaj') : (pacjent.telefon.length > 5) ? setPacjenciLista([...pacjenciLista, pacjent]) : console.log("Nie wpisze PAcjenta")
-  } else {
+  if (pacjent?.imie && pacjent?.nazwisko && pacjent?.email && pacjent?.plec && pacjent?.telefon) 
+  {
+      (
+        listaemail.includes(pacjent.email.substring(pacjent.email.indexOf("@"))) == false ? alert("Niepoprawny adres email") : 
+        pacjent.telefon.length < 9 ? alert("Niepoprawny numer telefonu ( zbyt krótki)") : 
+        pacjent.telefon.length > 9 ? alert("Niepoprawny numer telefonu ( zbyt długi)") :  
+        setPacjenciLista([...pacjenciLista, pacjent])
+      )
+    }
+   else {
     console.log("======> Nie wprowadzono wszystkich danych")
   }
 
@@ -131,7 +143,25 @@ useEffect(()=>{
 
     <AddCandidate  onClick={handleButton}>Dodaj Kandydata</AddCandidate><br></br>
     <button onClick={czyscicielStorage}>Wyczysc</button>
+
+    {
+      pacjenciLista.map(item => {
+        return 
+          <Lista 
+          imie={item.imie} 
+          nazwisko={item.nazwisko} 
+          email={item.email} 
+          plec={item.plec} 
+          telefon={item.telefon}
+          />
+      })
+     
+    }
+
   </Container>
+
+    
+
     );
 };
 
