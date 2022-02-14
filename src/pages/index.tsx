@@ -78,12 +78,12 @@ const czyscicielStorage = () => {
 const handleButton = () => {
   if (pacjent?.imie && pacjent?.nazwisko && pacjent?.email && pacjent?.plec && pacjent?.telefon) 
   {
-      (
+      
         listaemail.includes(pacjent.email.substring(pacjent.email.indexOf("@"))) == false ? alert("Niepoprawny adres email") : 
         pacjent.telefon.length < 9 ? alert("Niepoprawny numer telefonu ( zbyt krótki)") : 
         pacjent.telefon.length > 9 ? alert("Niepoprawny numer telefonu ( zbyt długi)") :  
         setPacjenciLista([...pacjenciLista, pacjent])
-      )
+      
     }
    else {
     console.log("======> Nie wprowadzono wszystkich danych")
@@ -146,7 +146,7 @@ useEffect(()=>{
 
     {
       pacjenciLista.map(item => {
-        return 
+        return(
           <Lista 
           imie={item.imie} 
           nazwisko={item.nazwisko} 
@@ -154,6 +154,7 @@ useEffect(()=>{
           plec={item.plec} 
           telefon={item.telefon}
           />
+        )
       })
      
     }
