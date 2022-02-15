@@ -4,30 +4,8 @@ import { Lista, StandartInput, listaemail } from "../components";
 
 
 
-interface IKandydat  {
-  imie: string
-  nazwisko: string 
-  email: string 
-  plec: string 
-  telefon: string 
-}
 
 
-const kandydat: IKandydat = {  
-  imie:"Adam",
-  nazwisko:"Gabrysiak",
-  email:"adam.gabrysiak@gmail.com",
-  plec:"M",
-  telefon:"555-444-333",
-}
-
-const kandydatDrugi: IKandydat = {  
-  imie:"Pawel",
-  nazwisko:"sanczyk",
-  email:"p.sanczyk@gmail.com",
-  plec:"M",
-  telefon:"555-444-333",
-}
 
 export interface IPacjent {
   imie: string
@@ -57,16 +35,7 @@ const HomePage = () => {
 
 
 
-// const handleButton = () => {            //Dodaje dopiero po drugim wciśnięciu przycisku
-//   {console.log("wykonuje func handle", imie)}
-//    if (imie && nazwisko && email && plec && telefon)  {                        
-//     console.log("======> Dodaję nową pozycję", imie)
-//     setPacjenci([...pacjenci, {imie: imie, nazwisko: nazwisko, email: email, plec: plec, telefon: telefon}])
-//      window.localStorage.setItem("pacjenci", JSON.stringify(pacjenci))
-//    } else {
-//     console.log("======> Nie wprowadzono wszystkich danych")
-//    }
-// }
+
 
 const czyscicielStorage = () => {
   window.localStorage.clear()
@@ -115,34 +84,13 @@ useEffect(()=>{
     }
 
     <h1>{komunikatWalidacji}</h1>
-    {/* <label>Imię:</label><br></br>
-    <input  onChange={value => setImie(value.target.value)}></input>
-    <br></br><br></br> */}
-
-    {/* <label>Nazwisko:</label><br></br>
-    <input onChange={value => setNazwisko(value.target.value)}></input>
-    <br></br><br></br>
-
-    <label>Email:</label><br></br>
-    <input  onChange={value => setEmail(value.target.value)}></input>
-    <br></br><br></br>
-
-    <label >Płeć:</label><br></br> */}
-    {/* <input id ="4" name="inputCzwarty" onChange={value => setPlec(value.target.value)}></input>  */}
- 
-
-    {/* <select  onChange={value => setPlec(value.target.value)}>
-    <option value="M">Mężczyzna</option>
-    <option value="K">Kobieta</option>
-    </select>
-    <br></br><br></br>
-
-    <label >Telefon:</label><br></br>
-    <input onChange={value => setTelefon(value.target.value)}></input>
-    <br></br><br></br> */}
+   
 
     <AddCandidate  onClick={handleButton}>Dodaj Kandydata</AddCandidate><br></br>
     <button onClick={czyscicielStorage}>Wyczysc</button>
+
+   
+
 
     {
       pacjenciLista.map(item => {
