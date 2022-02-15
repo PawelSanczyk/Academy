@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import { Lista, StandartInput, listaemail } from "../components";
 
 
-
-
-
-
 export interface IPacjent {
   imie: string
   nazwisko: string 
@@ -76,8 +72,8 @@ useEffect(()=>{
 
 
     return (
-  <Container>
-    {
+   <Container>
+     {
       inputsList.map((value, index)=> {
        return <StandartInput object={pacjent} fieldName={value} setHandle={setPacjent} />     
       })
@@ -88,6 +84,9 @@ useEffect(()=>{
 
     <AddCandidate  onClick={handleButton}>Dodaj Kandydata</AddCandidate><br></br>
     <button onClick={czyscicielStorage}>Wyczysc</button>
+
+
+   
 
    
 
@@ -105,7 +104,7 @@ useEffect(()=>{
         )
       })
      
-    }
+     }
 
   </Container>
 
