@@ -9,6 +9,7 @@
         "build:production": "dotenv -e .env.production -- next build && next export",
         "start": "next start",
         "zeus": "zeus https://linktoyourschema.com/graphql --ts ./",
+        "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },
     "dependencies": {
