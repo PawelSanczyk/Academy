@@ -7,7 +7,7 @@
         "build:development": "dotenv -e .env.development -- next build && next export",
         "build:production": "dotenv -e .env.production -- next build && next export",
         "start": "next start",
-        "zeus": "zeus https://linktoyourschema.com/graphql --ts ./",
+        "zeus": "zeus https://linktoyourschema.com/graphql --ts ./"
     },
     "dependencies": {
         "@emotion/css": "^11.1.3",
