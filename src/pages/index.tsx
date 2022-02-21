@@ -72,6 +72,7 @@ useEffect(()=>{
 
 
     return (
+      <Wrapper>
    <Container>
      {
       inputsList.map((value, index)=> {
@@ -107,7 +108,7 @@ useEffect(()=>{
      }
 
   </Container>
-
+</Wrapper>
     
 
     );
@@ -116,15 +117,23 @@ useEffect(()=>{
 export default HomePage;
 
 
+const Wrapper = styled.div`
+display: flex;
+flex-direction: row;
+margin-top: 50px;
+justify-content: center;
+height: 100vh;`
+
 const Container = styled.div`
   width: fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 30px;
+  padding-left: 30px;
   padding-bottom: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
