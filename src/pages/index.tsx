@@ -150,7 +150,7 @@ background: transparent;
   color: black;
   //margin: 0 1em;
   padding: 0.25em 1em;
-  margin: 20px 10px 10px 10px;
+  margin: 20px 10px 0px 10px;
   
 `
 const Wyczysc = styled.button`
