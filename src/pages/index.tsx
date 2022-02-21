@@ -82,8 +82,8 @@ useEffect(()=>{
     <h1>{komunikatWalidacji}</h1>
    
 
-    <AddCandidate  onClick={handleButton}>Dodaj Kandydata</AddCandidate><br></br>
-    <button onClick={czyscicielStorage}>Wyczysc</button>
+    <AddCandidate  onClick={handleButton}>Dodaj</AddCandidate><br></br>
+    <Wyczysc onClick={czyscicielStorage}>Wyczysc</Wyczysc>
 
 
    
@@ -121,9 +121,35 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 20px;
+  padding-right: 0px;
   margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 350px;
+  margin-right:350px;
+  background-color: #add8e6;
+  border: 3px solid #6fbbd3;
+
+
 `
 
 const AddCandidate = styled.button`
-
+background: transparent;
+  border-radius: 3px;
+  border: 2px solid #30849e;
+  color: black;
+  //margin: 0 1em;
+  padding: 0.25em 1em;
+  margin: 20px 10px 10px 10px;
+  
+`
+const Wyczysc = styled.button`
+background: transparent;
+  border-radius: 3px;
+  border: 2px solid #30849e;
+  color: black;
+  //margin: 0 1em;
+  padding: 0.25em 1em;
+  margin: 0px 10px 10px 10px;
+  
 `
