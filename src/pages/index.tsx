@@ -26,7 +26,7 @@ const HomePage = () => {
 
   const [komunikatWalidacji, setKomunikatWalidacji] = useState<string>('')
 
-  const inputsList = ['imie', "nazwisko", "email", "plec", "telefon"]
+  const inputsList = ['Imię', "Nazwisko", "email", "płec", "telefon"]
 
 
 
@@ -83,7 +83,7 @@ useEffect(()=>{
    
 
     <AddCandidate  onClick={handleButton}>Dodaj</AddCandidate><br></br>
-    <Wyczysc onClick={czyscicielStorage}>Wyczysc</Wyczysc>
+    <Wyczysc onClick={czyscicielStorage}>Wyczyść</Wyczysc>
 
 
    
@@ -117,16 +117,17 @@ export default HomePage;
 
 
 const Container = styled.div`
+  width: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 20px;
-  padding-right: 0px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
-  margin-left: 350px;
-  margin-right:350px;
   background-color: #add8e6;
   border: 3px solid #6fbbd3;
 
