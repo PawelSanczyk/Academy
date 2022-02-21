@@ -120,9 +120,10 @@ export default HomePage;
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
-margin-top: 50px;
 justify-content: center;
-height: 100vh;`
+height: 100vh;
+background-color: gray;
+`
 
 const Container = styled.div`
   width: fit-content;
