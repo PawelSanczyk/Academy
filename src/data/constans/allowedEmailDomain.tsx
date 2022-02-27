@@ -1,12 +1,9 @@
-import styled from "@emotion/styled"
 
-
-export const listaemail:string[] = [
+export const allowedEmailDomain: string[] = [
     '@gmail.com',
     '@wp.pl',
     '@onet.pl',
     '@interia.pl',
     '@yahoo.com'
-
 ];
 

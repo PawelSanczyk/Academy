@@ -1,10 +1,12 @@
+import { TPersonForm } from "@/src/types";
 import styled from "@emotion/styled"
+import { stringify } from "querystring";
 
 
 interface IStandarInput {
     object?: object;
     setHandle: any;
-    fieldName: string
+    fieldName: TPersonForm
 }
 
 
@@ -14,9 +16,10 @@ export const StandartInput: React.FC<IStandarInput> = ({setHandle, fieldName, ob
 
 return (
     <Container>
-        <Label>{fieldName}:</Label>
+        {console.log("fieldName", fieldName)}
+        <Label>{Object.values(fieldName)}:</Label>
         <br></br>
-        <Input onChange={value => setHandle({...object, [fieldName]: value.target.value})} />
+        <Input onChange={value => setHandle({...object, [Object.keys(fieldName) as unknown as string]: value.target.value})} />
     </Container>
 )
 }
